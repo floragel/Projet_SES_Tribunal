@@ -113,6 +113,8 @@ h1, h2, h3, .section-title, .hero-title {
     line-height: 1.4;
     z-index: 100;
     box-shadow: var(--shadow-md);
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .btn {
@@ -459,6 +461,9 @@ h1, h2, h3, .section-title, .hero-title {
     position: relative;
     border-bottom: 4px solid transparent;
     margin-bottom: -2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
 .tab-btn:hover {

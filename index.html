@@ -109,10 +109,22 @@
 
                 <!-- Tabs Navigation -->
                 <div class="tabs-navigation">
-                    <button class="tab-btn active" onclick="switchTab(event, 'tab-gouvernement')">Gouvernement</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'tab-justice')">Justice</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'tab-medias')">Médias</button>
-                    <button class="tab-btn" onclick="switchTab(event, 'tab-population')">Population</button>
+                    <button class="tab-btn active" onclick="switchTab(event, 'tab-gouvernement')">
+                        Gouvernement
+                        <span class="info-icon" data-tooltip="Le pouvoir exécutif, incarné par le Président et son gouvernement. Il gère la crise en direct par décrets réglementaires d'urgence.">i</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-justice')">
+                        Justice
+                        <span class="info-icon" data-tooltip="Le pouvoir judiciaire indépendant. Il veille au respect des libertés publiques, juge la légalité des décrets et arbitre le procès.">i</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-medias')">
+                        Médias
+                        <span class="info-icon" data-tooltip="Le quatrième pouvoir d'information. Les journalistes d'investigation documentent la crise, informent le public et relèvent les failles de l'État.">i</span>
+                    </button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-population')">
+                        Population
+                        <span class="info-icon" data-tooltip="La société civile et les acteurs de terrain : experts scientifiques prodiguant leurs avis, policiers appliquant les décrets et citoyens impactés.">i</span>
+                    </button>
                 </div>
 
                 <!-- Tab Content: Gouvernement -->
