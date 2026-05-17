@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gouvernement - Cellule de Crise Nationale : Hantavirus</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Spectral:ital,wght@0,400;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Icons & Libraries -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Premium -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="brand-block">
+                    <img src="Gouvernement_français.svg.png" alt="Logo Gouvernement Français"
+                        style="height: 80px; width: auto;">
+                </div>
+
+                <div class="header-tools">
+                    <div class="tool-links" style="align-items: center;">
+                        <a href="dossier_preuves.pdf" download="dossier_preuves.pdf" class="btn" style="background-color: var(--red-marianne); color: white; font-size: 0.8rem; padding: 0.5rem 1rem; font-weight: 800; border-radius: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: uppercase;">
+                            <i data-lucide="file-check" size="14"></i> Dossier de Preuves
+                        </a>
+                        <a href="#press" class="tool-link"><i data-lucide="newspaper" size="16"></i> Espace presse</a>
+                        <div id="theme-toggle" class="tool-link">
+                            <i data-lucide="moon" size="16"></i> <span>Mode Sombre</span>
+                        </div>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Rechercher un rôle, un nom...">
+                        <button class="search-btn"><i data-lucide="search" size="18"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                            <span
+                                style="background: var(--red-marianne); color: white; padding: 0.3rem 0.8rem; font-size: 0.8rem; font-weight: 800;">DIRECT</span>
+                            <span
+                                style="color: var(--blue-france); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Alerte
+                                Sanitaire</span>
+                        </div>
+                        <h1>Cellule de Crise :<br>Réponse au Hantavirus</h1>
+                        <p
+                            style="font-size: 1.25rem; color: var(--text-main); margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.8;">
+                            Suivez en direct l'allocution solennelle du <strong>Président</strong> face à l'urgence
+                            sanitaire nationale.
+                        </p>
+                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                            <a href="#alert" class="btn btn-primary">Voir les mesures</a>
+                            <a href="dossier_preuves.pdf" download="dossier_preuves.pdf" class="btn btn-outline" style="border-color: var(--red-marianne); color: var(--red-marianne);"><i data-lucide="file-check"></i> Dossier de Preuves</a>
+                            <a href="rapport scientifique.pdf" download="rapport scientifique.pdf" class="btn btn-outline"><i data-lucide="file-text"></i> Rapport scientifique</a>
+                        </div>
+                    </div>
+                    <div class="hero-video-box" style="transition-delay: 0.2s;">
+                        <i data-lucide="play-circle" size="80" stroke-width="1" style="color: white; z-index: 2;"></i>
+                        <div style="position: absolute; bottom: 2rem; left: 2rem; z-index: 2; color: white;">
+                            <p
+                                style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.2rem;">
+                                Live Streaming</p>
+                            <p style="font-family: 'Spectral'; font-size: 1.5rem;">Allocution du Président
+                            </p>
+                        </div>
+                        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Section -->
+        <section class="photo-section">
+            <div class="container">
+                <div class="photo-frame">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1200"
+                        alt="Conseil des Ministres">
+                </div>
+                <p style="margin-top: 1.5rem; font-style: italic; color: #888; font-size: 0.9rem;">
+                    Conseil des Ministres présidé par <strong>le Président</strong> - Mai 2026.
+                </p>
+            </div>
+        </section>
+
+        <!-- Powers Section (Restructured into Tabs) -->
+        <section class="powers-section">
+            <div class="container">
+                <h2 class="section-title">Organisation Institutionnelle & Acteurs du Procès</h2>
+
+                <!-- Tabs Navigation -->
+                <div class="tabs-navigation">
+                    <button class="tab-btn active" onclick="switchTab(event, 'tab-gouvernement')">Gouvernement</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-justice')">Justice</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-medias')">Médias</button>
+                    <button class="tab-btn" onclick="switchTab(event, 'tab-population')">Population</button>
+                </div>
+
+                <!-- Tab Content: Gouvernement -->
+                <div id="tab-gouvernement" class="tab-content active">
+                    <div class="cards-grid">
+                        <div class="card" onclick="openModal('Président de la République', 'Nayl', 'Article 16 (pleins pouvoirs), chef des armées, nomination du Premier ministre, décrets d\'urgence.', 'Garantir la survie nationale, freiner la propagation de l\'épidémie coûte que coûte, préserver l\'autorité de l\'État.', 'L\'urgence sanitaire extrême impose des restrictions exceptionnelles; le salut public est la loi suprême.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Président</span>
+                            <span class="card-name">Nayl</span>
+                        </div>
+                        <div class="card" onclick="openModal('Premier Ministre', 'Théodore', 'Direction de l\'action du gouvernement, signature des décrets réglementaires, engagement de la responsabilité devant l\'Assemblée.', 'Coordonner la mise en œuvre des mesures de confinement, maintenir l\'ordre administratif et l\'activité économique minimale.', 'Les décrets ont été pris légalement et proportionnellement à l\'urgence constatée par le Conseil scientifique.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Premier Ministre</span>
+                            <span class="card-name">Théodore</span>
+                        </div>
+                        <div class="card" onclick="openModal('Ministre de la Santé', 'Edward Victor', 'Réquisition des hôpitaux, ordonnance des protocoles de soins d\'urgence, gestion des stocks de masques et vaccins.', 'Empêcher la saturation des services de réanimation, déployer en urgence les traitements contre le Hantavirus.', 'Face à un taux de létalité élevé, seule une quarantaine absolue et la fermeture des écoles permet de couper la transmission.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Santé</span>
+                            <span class="card-name">Edward Victor</span>
+                        </div>
+                        <div class="card" onclick="openModal('Ministre de l\'Intérieur', 'Paul Hugo', 'Contrôle du couvre-feu, déploiement des forces de l\'ordre, restrictions physiques de circulation, amendes et sanctions.', 'Assurer le respect strict du confinement national, prévenir les troubles à l\'ordre public.', 'La sécurité sanitaire nécessite la coercition physique temporaire; les contrôles policiers sauvent des vies.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Intérieur</span>
+                            <span class="card-name">Paul Hugo</span>
+                        </div>
+                        <div class="card" onclick="openModal('Ministre de l\'Environnement', 'Arthur', 'Régulation des espaces naturels, surveillance de la faune sauvage, arrêt des activités industrielles polluantes temporaire.', 'Identifier l\'hôte réservoir du virus, limiter les contacts homme-faune sauvage pour couper le cycle de transmission.', 'Le Hantavirus est une zoonose; l\'urbanisation sauvage a favorisé ce débordement épidémique.', 'Neutre')">
+                            <span class="card-tag">Environnement</span>
+                            <span class="card-name">Arthur</span>
+                        </div>
+                        <div class="card" onclick="openModal('Député', 'Parlementaire', 'Vote de la loi d\'état d\'urgence sanitaire, contrôle de l\'exécutif via des commissions d\'enquête, motions de censure.', 'Représenter la nation, s\'assurer que les libertés publiques ne sont pas indûment restreintes à long terme.', 'L\'état d\'urgence ne doit pas devenir un état permanent; le Parlement doit garder le contrôle sur le budget d\'urgence.', 'Neutre / Accusation')">
+                            <span class="card-tag">Assemblée Nationale</span>
+                            <span class="card-name">Député</span>
+                        </div>
+                        <div class="card" onclick="openModal('Sénateur', 'Parlementaire', 'Vote de la loi, contrôle du gouvernement, représentation des collectivités territoriales (maires, départements).', 'Veiller à l\'équilibre entre libertés territoriales et sécurité nationale; soutenir les élus locaux débordés par la crise.', 'Les maires manquent de moyens pour appliquer les décrets imposés d\'en haut de manière uniforme.', 'Neutre')">
+                            <span class="card-tag">Sénat</span>
+                            <span class="card-name">Sénateur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Justice -->
+                <div id="tab-justice" class="tab-content">
+                    <div class="cards-grid">
+                        <div class="card" onclick="openModal('Juge', 'Marie Sophie', 'Trancher les litiges administratifs, suspendre les décrets gouvernementaux si disproportionnés (référé-liberté).', 'Garantir l\'État de droit, s\'assurer que les mesures restrictives respectent la Convention européenne des droits de l\'homme.', 'La liberté d\'aller et venir ne peut être restreinte que si la mesure est nécessaire, adaptée et proportionnelle.', 'Neutre (Arbitre)')">
+                            <span class="card-tag">Juge</span>
+                            <span class="card-name">Marie Sophie</span>
+                        </div>
+                        <div class="card" onclick="openModal('Juge', 'Tim', 'Sanctionner pénalement les infractions sanitaires ou les abus de pouvoir, juger les recours des citoyens.', 'Protéger les droits individuels contre l\'arbitraire policier ou administratif durant le confinement.', 'Même en temps de crise, le pouvoir exécutif reste soumis au contrôle constitutionnel et judiciaire strict.', 'Neutre (Arbitre)')">
+                            <span class="card-tag">Juge</span>
+                            <span class="card-name">Tim</span>
+                        </div>
+                        <div class="card" onclick="openModal('Avocate de l\'Accusation', 'Karen', 'Représentation légale des victimes de la gestion de crisis (collectifs de citoyens, familles de victimes), dépôt de plaintes pénales.', 'Faire condamner l\'exécutif pour mise en danger de la vie d\'autrui et atteinte disproportionnée aux libertés fondamentales.', 'Le confinement total et la fermeture des écoles sans planification ont causé des préjudices psychologiques et éducatifs majeurs.', 'Accusation')">
+                            <span class="card-tag">Accusation</span>
+                            <span class="card-name">Karen</span>
+                        </div>
+                        <div class="card" onclick="openModal('Avocat de la Défense', 'À déterminer', 'Représentation et plaidoirie pour les membres de l\'exécutif ou de l\'administration attaqués en justice.', 'Démontrer la légalité et la nécessité absolue des décisions exceptionnelles prises par le gouvernement de crise.', 'Dans une situation de force majeure épidémique, l\'inaction aurait constitué une faute pénale de non-assistance à personne en danger.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Défense</span>
+                            <span class="card-name">Avocat Défense</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Médias -->
+                <div id="tab-medias" class="tab-content">
+                    <div class="cards-grid">
+                        <div class="card" onclick="openModal('Journaliste d\'Investigation', 'Manoa', 'Liberté de la presse constitutionnelle, droit de divulgation de sources, couverture et enquête sur le terrain.', 'Révéler les failles logistiques de l\'État (manque de masques, retards de livraison de traitements) et les débats internes.', 'Le public a le droit de connaître la vérité sur l\'impréparation de l\'État pour juger l\'action gouvernementale.', 'Neutre / Accusation')">
+                            <span class="card-tag">Journaliste</span>
+                            <span class="card-name">Manoa</span>
+                        </div>
+                        <div class="card" onclick="openModal('Journaliste d\'Investigation', 'Joséphine', 'Liberté de la presse, liberté de parole, diffusion d\'informations et de reportages nationaux.', 'Documenter l\'impact du confinement sur les populations les plus vulnérables et vérifier la véracité des déclarations officielles.', 'Les chiffres officiels de l\'épidémie sous-estiment la détresse sociale générée par les mesures autoritaires.', 'Neutre / Accusation')">
+                            <span class="card-tag">Journaliste</span>
+                            <span class="card-name">Joséphine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Population -->
+                <div id="tab-population" class="tab-content">
+                    <div class="cards-grid">
+                        <div class="card" onclick="openModal('Expert Scientifique', 'Valentin', 'Émettre des avis scientifiques, modéliser la transmission du virus, conseiller le Conseil de défense sanitaire.', 'Baser les décisions politiques sur des faits épidémiologiques rigoureux pour éteindre le foyer de Hantavirus.', 'La modélisation mathématique prouve que sans confinement strict immédiat, le système hospitalier se serait effondré en 8 jours.', 'Neutre')">
+                            <span class="card-tag">Science</span>
+                            <span class="card-name">Valentin</span>
+                        </div>
+                        <div class="card" onclick="openModal('Officier de la Police Nationale', 'Ibrahima', 'Contrôle d\'identité, verbalisation des infractions de couvre-feu, exécution matérielle des réquisitions préfectorales.', 'Appliquer strictement les consignes du ministère de l\'Intérieur sur le terrain pour garantir le confinement.', 'La police n\'interprète pas la loi, elle la fait respecter pour protéger la collectivité de l\'inconscience individuelle.', 'Défense du Gouvernement')">
+                            <span class="card-tag">Police Nationale</span>
+                            <span class="card-name">Ibrahima</span>
+                        </div>
+                        <div class="card" onclick="openModal('Citoyen impacté', 'Tracy', 'Droits constitutionnels de citoyenneté, pétitions collectives, liberté d\'expression et droit au procès équitable.', 'Dénoncer la perte brutale de ses libertés individuelles, l\'isolement social forcé et l\'effondrement de son activité.', 'Le confinement total est une peine collective disproportionnée qui détruit l\'économie et la santé mentale sans éteindre le virus.', 'Accusation')">
+                            <span class="card-tag">Citoyen</span>
+                            <span class="card-name">Tracy</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Alert Section -->
+        <section id="alert" class="alert-section">
+            <div class="container">
+                <div class="alert-split">
+                    <div>
+                        <h2 class="alert-title">État d'Urgence Sanitaire</h2>
+                        <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 2.5rem; opacity: 0.9;">
+                            <strong>Le Hantavirus progresse sur le territoire national.</strong> Par décret
+                            présidentiel, l'état d'urgence sanitaire est activé. Mesures en vigueur : Confinement
+                            national et fermeture immédiate de tous les établissements scolaires.
+                        </p>
+                        <a href="ATTESTATION DE DÉPLACEMENT DÉROGATOIRE.pdf"
+                            download="ATTESTATION DE DEPLACEMENT DEROGATOIRE.pdf" class="btn btn-primary"
+                            style="background: var(--red-marianne);">
+                            <i data-lucide="download"></i> Télécharger l'Attestation
+                        </a>
+                    </div>
+                    <div class="alert-measures">
+                        <h3
+                            style="color: var(--red-marianne); font-size: 1.5rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                            Mesures de confinement sanitaire
+                        </h3>
+                        <div class="measure-list">
+                            <div class="measure-item">
+                                <div><strong>Confinement national obligatoire</strong> 24h/24, déplacements interdits
+                                    sauf motifs impérieux soumis à attestation.</div>
+                            </div>
+                            <div class="measure-item">
+                                <div><strong>Port du masque systématique</strong> obligatoire en milieu intérieur ouvert
+                                    au public et sur l'ensemble de la voie publique.</div>
+                            </div>
+                            <div class="measure-item">
+                                <div><strong>Limitation stricte des déplacements</strong> autorisés dans un rayon
+                                    maximal de 1 km autour du domicile.</div>
+                            </div>
+                            <div class="measure-item">
+                                <div><strong>Fermeture des commerces</strong> et des établissements recevant du public
+                                    non-essentiels à la vie de la Nation.</div>
+                            </div>
+                            <div class="measure-item">
+                                <div><strong>Fermeture des établissements scolaires</strong> et suspension temporaire de
+                                    l'ensemble des cours en présentiel.</div>
+                            </div>
+                            <div class="measure-item">
+                                <div><strong>Généralisation du télétravail</strong> obligatoire pour toutes les
+                                    fonctions professionnelles le permettant.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Layout -->
+        <section class="container info-layout" id="press">
+            <div class="live-column">
+                <h2 class="section-title">Actualités Direct</h2>
+                <div class="timeline-item">
+                    <span style="font-weight: 800; color: var(--blue-france); font-size: 0.8rem;">16:50 -
+                        Maintenant</span>
+                    <p>le <strong>Président</strong> prépare son allocution solennelle.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="font-weight: 800; color: var(--blue-france); font-size: 0.8rem;">15:30</span>
+                    <p>Validation du décret de confinement par le <strong>Premier Ministre</strong>.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="font-weight: 800; color: var(--blue-france); font-size: 0.8rem;">14:00</span>
+                    <p>Point presse du Ministre de la Santé sur l'occupation des lits de réanimation.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="font-weight: 800; color: var(--blue-france); font-size: 0.8rem;">11:30</span>
+                    <p>Déploiement de l'armée pour soutenir les centres de dépistage et de soins.</p>
+                </div>
+                <div class="timeline-item">
+                    <span style="font-weight: 800; color: var(--blue-france); font-size: 0.8rem;">08:15</span>
+                    <p>Suspension immédiate de tous les vols internationaux en provenance des zones rouges.</p>
+                </div>
+            </div>
+
+            <div class="press-column">
+                <h2 class="section-title" style="justify-content: flex-end;">Espace Presse</h2>
+                <div class="press-grid">
+                    <a href="javascript:void(0)" class="press-card"
+                        onclick="openArticleModal('Manoa - Média 1', 'Crise du Hantavirus : Quels sont les risques réels ?', 'Selon des sources gouvernementales, la souche actuelle du virus se propage de manière inédite, ce qui explique l\'activation immédiate de l\'état d\'urgence sanitaire.')">
+                        <div>
+                            <span class="card-tag"
+                                style="font-size: 0.75rem; color: var(--blue-france); font-weight: 800; display:block;">Manoa
+                                - Média 1</span>
+                            <p class="card-name" style="font-weight: 700; margin-top:0.2rem;">"Crise du Hantavirus :
+                                Quels sont les risques réels ?"</p>
+                        </div>
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="press-card"
+                        onclick="openArticleModal('Josephine - Média 2', 'Témoignage : La vie sous confinement strict.', 'Une analyse des impacts psychosociaux et économiques du confinement total ordonné par le gouvernement de crise.')">
+                        <div>
+                            <span class="card-tag"
+                                style="font-size: 0.75rem; color: var(--blue-france); font-weight: 800; display:block;">Josephine
+                                - Média 2</span>
+                            <p class="card-name" style="font-weight: 700; margin-top:0.2rem;">"Témoignage : La vie sous
+                                confinement strict."</p>
+                        </div>
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="press-card"
+                        onclick="openArticleModal('Le Figaro', 'Hantavirus : La course au vaccin s\'accélère dans les laboratoires.', 'Les instituts de recherche nationaux ont reçu des financements d\'urgence pour développer un traitement efficace dans les prochaines semaines.')">
+                        <div>
+                            <span class="card-tag"
+                                style="font-size: 0.75rem; color: var(--blue-france); font-weight: 800; display:block;">Le
+                                Figaro</span>
+                            <p class="card-name" style="font-weight: 700; margin-top:0.2rem;">"Hantavirus : La course au
+                                vaccin s'accélère dans les laboratoires."</p>
+                        </div>
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="press-card"
+                        onclick="openArticleModal('Libération', 'Crise sanitaire : Le Parlement divisé sur l\'activation de l\'article 16.', 'De vifs débats ont eu lieu à l\'Assemblée Nationale concernant les pleins pouvoirs exceptionnels accordés au Président.')">
+                        <div>
+                            <span class="card-tag"
+                                style="font-size: 0.75rem; color: var(--blue-france); font-weight: 800; display:block;">Libération</span>
+                            <p class="card-name" style="font-weight: 700; margin-top:0.2rem;">"Crise sanitaire : Le
+                                Parlement divisé sur l'activation de l'article 16."</p>
+                        </div>
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="press-card"
+                        onclick="openArticleModal('Les Échos', 'Impact économique : Un plan de soutien massif annoncé par Bercy.', 'Le Ministre de l\'Industrie a détaillé les mesures de chômage partiel et les aides aux entreprises pour faire face au confinement.')">
+                        <div>
+                            <span class="card-tag"
+                                style="font-size: 0.75rem; color: var(--blue-france); font-weight: 800; display:block;">Les
+                                Échos</span>
+                            <p class="card-name" style="font-weight: 700; margin-top:0.2rem;">"Impact économique : Un
+                                plan de soutien massif annoncé par Bercy."</p>
+                        </div>
+                        <i data-lucide="chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Roles -->
+    <div id="modal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-body" style="max-height: 90vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeModal()"><i data-lucide="x" size="24"></i></button>
+            <div style="border-bottom: 1px solid var(--border-default); padding-bottom: 1.5rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span id="m-tag" style="color: var(--blue-france); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">Tag</span>
+                    <h2 id="m-name" style="font-size: 2.5rem; margin-top: 0.3rem; font-family: 'Spectral', serif;">Nom</h2>
+                </div>
+                <div id="m-position-badge" style="padding: 0.4rem 1rem; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; border-radius: 2px; letter-spacing: 0.05em;">
+                    Positionnement
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;">
+                <div>
+                    <h4 style="text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.75rem; color: var(--blue-france); font-weight: 800; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="shield" size="16"></i> Pouvoirs</h4>
+                    <p id="m-powers" style="opacity: 0.9; line-height: 1.6; font-size: 0.95rem;"></p>
+                </div>
+                <div>
+                    <h4 style="text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.75rem; color: var(--blue-france); font-weight: 800; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="target" size="16"></i> Objectifs</h4>
+                    <p id="m-objectifs" style="opacity: 0.9; line-height: 1.6; font-size: 0.95rem;"></p>
+                </div>
+            </div>
+            <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; border-top: 1px dashed var(--border-default); padding-top: 2rem;">
+                <div>
+                    <h4 style="text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.75rem; color: var(--red-marianne); font-weight: 800; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="message-square" size="16"></i> Arguments</h4>
+                    <p id="m-arguments" style="opacity: 0.9; line-height: 1.6; font-size: 0.95rem;"></p>
+                </div>
+                <div>
+                    <h4 style="text-transform: uppercase; font-size: 0.85rem; margin-bottom: 0.75rem; color: var(--text-main); font-weight: 800; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="scale" size="16"></i> Rôle au Procès</h4>
+                    <p id="m-position-text" style="opacity: 0.9; line-height: 1.6; font-size: 0.95rem; font-weight: 600;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Press Articles -->
+    <div id="article-modal" class="modal-overlay" onclick="closeArticleModalOnOverlay(event)">
+        <div class="article-modal-body">
+            <button class="modal-close" onclick="closeArticleModal()"><i data-lucide="x" size="24"></i></button>
+
+            <div class="article-header">
+                <div class="article-media-name" id="a-media">LE JOURNAL</div>
+                <div class="article-meta">
+                    <span id="a-date">Édition Spéciale - Mai 2026</span>
+                    <span><i data-lucide="clock" size="14"></i> Temps de lecture: 2 min</span>
+                </div>
+            </div>
+
+            <h1 class="article-headline" id="a-title">Titre de l'article</h1>
+
+            <div class="article-content">
+                <p class="article-lead" id="a-lead">Une phrase d'accroche pour résumer l'article et capter l'attention
+                    du lecteur.</p>
+                <div class="article-text" id="a-content">
+                    Contenu de l'article ici...
+                </div>
+            </div>
+
+            <div class="article-footer">
+                <p>© 2026 Espace Presse - Cellule de Crise</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="Gouvernement_français.svg.png" alt="Logo Gouvernement Français"
+                style="height: 60px; width: auto;">
+            <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 - Simulation Pédagogique SES - Cellule de Crise</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
