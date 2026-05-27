@@ -74,16 +74,60 @@
                             <a href="rapport scientifique.pdf" download="rapport scientifique.pdf" class="btn btn-outline"><i data-lucide="file-text"></i> Rapport scientifique</a>
                         </div>
                     </div>
-                    <div class="hero-video-box" style="transition-delay: 0.2s;">
-                        <i data-lucide="play-circle" size="80" stroke-width="1" style="color: white; z-index: 2;"></i>
-                        <div style="position: absolute; bottom: 2rem; left: 2rem; z-index: 2; color: white;">
-                            <p
-                                style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.2rem;">
-                                Live Streaming</p>
-                            <p style="font-family: 'Spectral'; font-size: 1.5rem;">Allocution du Président
-                            </p>
+                    <div class="hero-video-box" id="president-video-container" style="transition-delay: 0.2s; position: relative;">
+                        <!-- HTML5 Video -->
+                        <video id="president-video" src="final_video.mp4" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+                        
+                        <!-- Live Stream Top Badges -->
+                        <div class="video-top-bar" style="position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; justify-content: space-between; z-index: 3; font-family: 'Inter', sans-serif; pointer-events: none;">
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="live-pill" style="background: #E1000F; color: white; padding: 0.25rem 0.6rem; font-size: 0.7rem; font-weight: 800; display: inline-flex; align-items: center; gap: 0.35rem; text-transform: uppercase; border-radius: 2px;">
+                                    <span class="live-dot" style="width: 6px; height: 6px; background: white; border-radius: 50%; display: inline-block;"></span> DIRECT
+                                </span>
+                                <span class="viewer-count" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 0.25rem 0.6rem; font-size: 0.7rem; font-weight: 600; border-radius: 2px; display: inline-flex; align-items: center; gap: 0.35rem;">
+                                    <i data-lucide="users" size="12"></i> <span id="viewers-number">1 428 501</span>
+                                </span>
+                            </div>
+                            <span style="background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); color: white; padding: 0.25rem 0.6rem; font-size: 0.7rem; font-weight: 700; border-radius: 2px; text-transform: uppercase;">
+                                HD 1080p
+                            </span>
                         </div>
-                        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3);"></div>
+
+                        <!-- Play Overlay (Before Play) -->
+                        <i data-lucide="play-circle" size="80" stroke-width="1" class="video-play-btn" style="color: white; z-index: 3; position: absolute; transition: opacity 0.3s, transform 0.3s; cursor: pointer;"></i>
+                        
+                        <div class="video-overlay" style="position: absolute; bottom: 2rem; left: 2rem; z-index: 3; color: white; transition: opacity 0.3s; pointer-events: none;">
+                            <p style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 0.2rem; letter-spacing: 0.1em; color: var(--red-marianne);">Allocution Solennelle</p>
+                            <p style="font-family: 'Spectral'; font-size: 1.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Le Président de la République s'adresse à la Nation</p>
+                        </div>
+
+                        <!-- Dark Overlay filter (Before Play) -->
+                        <div class="video-darken" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.4) 100%); z-index: 2; transition: opacity 0.3s; pointer-events: none;"></div>
+
+                        <!-- Custom Controls Bar (Shows on Hover/Playing) -->
+                        <div class="custom-controls" style="position: absolute; bottom: 35px; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); z-index: 4; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; font-family: 'Inter', sans-serif;">
+                            <div style="display: flex; align-items: center; gap: 1.5rem; pointer-events: auto;">
+                                <button id="ctrl-play-pause" style="background: none; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i data-lucide="pause" size="20"></i></button>
+                                <button id="ctrl-mute" style="background: none; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i data-lucide="volume-2" size="20"></i></button>
+                                <span style="color: #FF3B30; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem;">
+                                    <span class="live-dot-pulse" style="width: 8px; height: 8px; background: #FF3B30; border-radius: 50%;"></span> EN DIRECT
+                                </span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem; pointer-events: auto;">
+                                <span style="color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 600;">ÉLYSÉE LIVE</span>
+                                <button id="ctrl-fullscreen" style="background: none; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i data-lucide="maximize" size="20"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- News Ticker (Always visible when playing) -->
+                        <div class="video-ticker" style="position: absolute; bottom: 0; left: 0; right: 0; height: 35px; background: rgba(0,0,0,0.85); border-top: 2px solid var(--red-marianne); z-index: 3; display: flex; align-items: center; overflow: hidden; opacity: 0; transition: opacity 0.3s; pointer-events: none; font-family: 'Inter', sans-serif;">
+                            <span style="background: var(--red-marianne); color: white; padding: 0 0.8rem; font-size: 0.75rem; font-weight: 900; height: 100%; display: flex; align-items: center; white-space: nowrap; letter-spacing: 0.05em; z-index: 5;">INFO DIRECT</span>
+                            <div class="ticker-wrap" style="flex: 1; overflow: hidden; display: flex; align-items: center;">
+                                <div class="ticker-text" style="white-space: nowrap; display: inline-block; padding-left: 100%; animation: ticker-animation 25s linear infinite; font-size: 0.8rem; color: white; font-weight: 600;">
+                                    URGENT : Allocution solennelle du Président de la République face à l'épidémie nationale de Hantavirus • ALERTE SANITAIRE : Confinement national décrété sur tout le territoire • Le Ministre de l'Intérieur appelle au strict respect du couvre-feu • Les écoles fermées jusqu'à nouvel ordre.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

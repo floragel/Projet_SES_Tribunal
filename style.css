@@ -504,6 +504,39 @@ h1, h2, h3, .section-title, .hero-title {
     border-radius: 2px;
 }
 
+/* President Video Play State & Live Overlays */
+#president-video-container.playing .video-play-btn,
+#president-video-container.playing .video-overlay,
+#president-video-container.playing .video-darken {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#president-video-container.playing .video-ticker {
+    opacity: 1;
+}
+
+#president-video-container.playing:hover .custom-controls {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Animations */
+@keyframes pulse-live {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.live-dot, .live-dot-pulse {
+    animation: pulse-live 1.5s infinite ease-in-out;
+}
+
+@keyframes ticker-animation {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
 /* Utility */
 .hidden { display: none !important; }
 

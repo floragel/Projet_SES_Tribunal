@@ -183,4 +183,98 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('input', performSearch);
         searchBtn.addEventListener('click', performSearch);
     }
+
+    // President Video Control
+    const videoContainer = document.getElementById('president-video-container');
+    const video = document.getElementById('president-video');
+    const playPauseBtn = document.getElementById('ctrl-play-pause');
+    const muteBtn = document.getElementById('ctrl-mute');
+    const fullscreenBtn = document.getElementById('ctrl-fullscreen');
+    const viewersEl = document.getElementById('viewers-number');
+    
+    if (videoContainer && video) {
+        // Toggle play/pause
+        const togglePlay = () => {
+            if (video.paused) {
+                video.play();
+                videoContainer.classList.add('playing');
+                if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="pause" size="20"></i>';
+            } else {
+                video.pause();
+                videoContainer.classList.remove('playing');
+                if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="play" size="20"></i>';
+            }
+            try { lucide.createIcons(); } catch(e) {}
+        };
+
+        // Main container click (excluding controls)
+        videoContainer.addEventListener('click', (e) => {
+            if (e.target.closest('.custom-controls')) return;
+            togglePlay();
+        });
+
+        if (playPauseBtn) {
+            playPauseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+        }
+
+        // Mute/Unmute
+        if (muteBtn) {
+            muteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                video.muted = !video.muted;
+                if (video.muted) {
+                    muteBtn.innerHTML = '<i data-lucide="volume-x" size="20"></i>';
+                } else {
+                    muteBtn.innerHTML = '<i data-lucide="volume-2" size="20"></i>';
+                }
+                try { lucide.createIcons(); } catch(e) {}
+            });
+        }
+
+        // Fullscreen
+        if (fullscreenBtn) {
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { /* Safari */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE11 */
+                    video.msRequestFullscreen();
+                }
+            });
+        }
+        
+        video.addEventListener('play', () => {
+            videoContainer.classList.add('playing');
+            if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="pause" size="20"></i>';
+            try { lucide.createIcons(); } catch(e) {}
+        });
+        
+        video.addEventListener('pause', () => {
+            videoContainer.classList.remove('playing');
+            if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="play" size="20"></i>';
+            try { lucide.createIcons(); } catch(e) {}
+        });
+        
+        video.addEventListener('ended', () => {
+            videoContainer.classList.remove('playing');
+            if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="play" size="20"></i>';
+            video.load(); // Reset
+            try { lucide.createIcons(); } catch(e) {}
+        });
+    }
+
+    // Fluctuating viewers count
+    if (viewersEl) {
+        let viewers = 1428501;
+        setInterval(() => {
+            const change = Math.floor(Math.random() * 600) - 300;
+            viewers += change;
+            viewersEl.innerText = viewers.toLocaleString('fr-FR');
+        }, 3000);
+    }
 });
