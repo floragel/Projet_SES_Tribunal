@@ -210,7 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Main container click (excluding controls)
         videoContainer.addEventListener('click', (e) => {
             if (e.target.closest('.custom-controls')) return;
-            togglePlay();
+            
+            if (!videoContainer.classList.contains('playing')) {
+                togglePlay();
+            } else {
+                videoContainer.classList.toggle('show-controls');
+            }
+        });
+
+        // Double-click to toggle fullscreen
+        videoContainer.addEventListener('dblclick', (e) => {
+            if (e.target.closest('.custom-controls')) return;
+            toggleFullscreen();
         });
 
         if (playPauseBtn) {
@@ -234,19 +245,62 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Fullscreen
+        // Fullscreen Toggle Function
+        const toggleFullscreen = () => {
+            const containerElem = videoContainer;
+            const isFullscreen = document.fullscreenElement || 
+                                 document.webkitFullscreenElement || 
+                                 document.mozFullScreenElement || 
+                                 document.msFullscreenElement;
+                                 
+            if (!isFullscreen) {
+                if (containerElem.requestFullscreen) {
+                    containerElem.requestFullscreen();
+                } else if (containerElem.webkitRequestFullscreen) {
+                    containerElem.webkitRequestFullscreen();
+                } else if (containerElem.msRequestFullscreen) {
+                    containerElem.msRequestFullscreen();
+                } else if (video.webkitEnterFullscreen) {
+                    video.webkitEnterFullscreen(); // Fallback for iOS Safari
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        };
+
         if (fullscreenBtn) {
             fullscreenBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                } else if (video.webkitRequestFullscreen) { /* Safari */
-                    video.webkitRequestFullscreen();
-                } else if (video.msRequestFullscreen) { /* IE11 */
-                    video.msRequestFullscreen();
-                }
+                toggleFullscreen();
             });
         }
+
+        // Track fullscreen change to update icon
+        const updateFullscreenIcon = () => {
+            const isFullscreen = document.fullscreenElement || 
+                                 document.webkitFullscreenElement || 
+                                 document.mozFullScreenElement || 
+                                 document.msFullscreenElement;
+            if (fullscreenBtn) {
+                if (isFullscreen) {
+                    fullscreenBtn.innerHTML = '<i data-lucide="minimize" size="20"></i>';
+                } else {
+                    fullscreenBtn.innerHTML = '<i data-lucide="maximize" size="20"></i>';
+                }
+                try { lucide.createIcons(); } catch(e) {}
+            }
+        };
+
+        document.addEventListener('fullscreenchange', updateFullscreenIcon);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+        document.addEventListener('mozfullscreenchange', updateFullscreenIcon);
+        document.addEventListener('MSFullscreenChange', updateFullscreenIcon);
         
         video.addEventListener('play', () => {
             videoContainer.classList.add('playing');
@@ -256,12 +310,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         video.addEventListener('pause', () => {
             videoContainer.classList.remove('playing');
+            videoContainer.classList.remove('show-controls');
             if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="play" size="20"></i>';
             try { lucide.createIcons(); } catch(e) {}
         });
         
         video.addEventListener('ended', () => {
             videoContainer.classList.remove('playing');
+            videoContainer.classList.remove('show-controls');
             if (playPauseBtn) playPauseBtn.innerHTML = '<i data-lucide="play" size="20"></i>';
             video.load(); // Reset
             try { lucide.createIcons(); } catch(e) {}

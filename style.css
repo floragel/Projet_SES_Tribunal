@@ -516,9 +516,27 @@ h1, h2, h3, .section-title, .hero-title {
     opacity: 1;
 }
 
-#president-video-container.playing:hover .custom-controls {
+#president-video-container.playing:hover .custom-controls,
+#president-video-container.playing.show-controls .custom-controls {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* Fullscreen support */
+#president-video-container:fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    background: #000 !important;
+}
+
+#president-video-container:-webkit-full-screen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    background: #000 !important;
 }
 
 /* Animations */
